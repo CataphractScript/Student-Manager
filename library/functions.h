@@ -22,7 +22,6 @@ typedef struct
   unsigned char c3; 
 }choice;
 
-
 struct information
 {
   char name[NAME_LENGTH];
@@ -158,4 +157,39 @@ int getcommand4()
 
   scanf("%d", &choice);
   return choice;
+}
+
+void GetStudentInfo(info * stu, grades * gstu)
+{
+  printf("\n");
+  printf("Enter student name : ");
+  scanf("%20s", stu->name);
+  printf("Enter student last name : ");
+  scanf("%30s", stu->last_name);
+  printf("Enter student id : ");
+  scanf("%u", &(stu->student_id)); 
+  printf("Enter student age : ");
+  scanf("%u", &(stu->student_age));
+
+  gstu->check_grade = true;
+  gstu->student_id = stu->student_id;
+
+  printf("\n");
+ 
+  puts("Enter student grades :");
+
+  printf("Enter math1 grade -----> ");
+  scanf("%f", &(gstu->math1));
+  printf("Enter physic1 grade -----> ");
+  scanf("%f", &(gstu->physic1));
+  printf("Enter computer workshop grade -----> ");
+  scanf("%f", &(gstu->computer_workshop));
+  printf("Enter basic programming grade -----> ");
+  scanf("%f", &(gstu->basic_programming));
+  printf("Enter persian language grade -----> ");
+  scanf("%f", &(gstu->persian_lan));
+  printf("Enter english language grade -----> ");
+  scanf("%f", &(gstu->english_lan));
+  printf("Enter rules grade -----> ");
+  scanf("%f", &(gstu->rules));
 }
