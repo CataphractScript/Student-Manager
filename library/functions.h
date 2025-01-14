@@ -31,7 +31,6 @@ struct information
   unsigned int student_age;
 };
 
-
 typedef struct
 {
   bool check_grade;
@@ -44,7 +43,6 @@ typedef struct
   float english_lan;
   float rules;  
 }grades;
-
 
 typedef struct  // Temporary variables
 { 
@@ -72,7 +70,6 @@ typedef struct
   bool r;
 }check;
 
-
 int getcommand()
 {
   int choice;
@@ -90,7 +87,6 @@ int getcommand()
   return choice;
 }
 
-
 int getcommand1()
 {
   int choice;
@@ -106,7 +102,6 @@ int getcommand1()
   scanf("%d", &choice);
   return choice;
 }
-
 
 int getcommand2()
 {
@@ -129,7 +124,6 @@ int getcommand2()
   return choice;
 }
 
-
 int getcommand3()
 {
   int choice;
@@ -147,7 +141,6 @@ int getcommand3()
   scanf("%d", &choice);
   return choice;
 }
-
 
 int getcommand4()
 {
