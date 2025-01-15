@@ -193,3 +193,8 @@ void GetStudentInfo(info * stu, grades * gstu)
   printf("Enter rules grade -----> ");
   scanf("%f", &(gstu->rules));
 }
+
+void AddStudentGrades(grades * addG)
+{
+
+}
