@@ -159,7 +159,7 @@ int getcommand4()
   return choice;
 }
 
-void GetStudentInfo(info * stu, grades * gstu)
+void GetStudentInfo(info* stu, grades* gstu)
 {
   printf("\n");
   printf("Enter student name : ");
@@ -194,7 +194,24 @@ void GetStudentInfo(info * stu, grades * gstu)
   scanf("%f", &(gstu->rules));
 }
 
-void AddStudentGrades(grades * addG)
+void AddStudentGrades(grades* addG)
 {
+  addG->check_grade = true;
 
+  puts("Enter student grades :");
+
+  printf("Enter math1 grade -----> ");
+  scanf("%f", &(addG->math1));
+  printf("Enter physic1 grade -----> ");
+  scanf("%f", &(addG->physic1));
+  printf("Enter computer workshop grade -----> ");
+  scanf("%f", &(addG->computer_workshop));
+  printf("Enter basic programming grade -----> ");
+  scanf("%f", &(addG->basic_programming));
+  printf("Enter persian language grade -----> ");
+  scanf("%f", &(addG->persian_lan));
+  printf("Enter english language grade -----> ");
+  scanf("%f", &(addG->english_lan));
+  printf("Enter rules grade -----> ");
+  scanf("%f", &(addG->rules));
 }
