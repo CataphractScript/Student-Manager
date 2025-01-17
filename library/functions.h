@@ -215,3 +215,5 @@ void AddStudentGrades(grades* addG)
   printf("Enter rules grade -----> ");
   scanf("%f", &(addG->rules));
 }
+
+void RemoveStudent(unsigned int sid, FILE* fptr, FILE* gfptr) {}
