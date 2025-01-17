@@ -216,4 +216,27 @@ void AddStudentGrades(grades* addG)
   scanf("%f", &(addG->rules));
 }
 
-void RemoveStudent(unsigned int sid, FILE* fptr, FILE* gfptr) {}
+void RemoveStudent(unsigned int sid, FILE* fptr, FILE* gfptr)
+{
+  info Rstudent;
+  grades GradesPart;
+  
+  fseek(fptr, sizeof(info) * (sid - 1), SEEK_SET);
+  fread(&Rstudent, sizeof(info), 1, fptr);
+  Rstudent.student_id = 0;
+  fseek(fptr, sizeof(info) * (sid - 1), SEEK_SET);
+  fwrite(&Rstudent, sizeof(info), 1, fptr);
+
+  fseek(gfptr, sizeof(grades) * (sid - 1), SEEK_SET);
+  fread(&GradesPart, sizeof(grades), 1, gfptr);
+  GradesPart.check_grade = false;
+  fseek(gfptr, sizeof(grades) * (sid - 1), SEEK_SET);
+  fwrite(&GradesPart, sizeof(grades), 1, gfptr);
+
+  printf("\n");
+  puts("------------------------------");
+  printf("\n");
+  puts("Student information was removed from the list !!!");
+  printf("\n");
+  puts("------------------------------");
+}
