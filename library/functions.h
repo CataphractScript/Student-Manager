@@ -241,4 +241,13 @@ void RemoveStudent(unsigned int sid, FILE* fptr, FILE* gfptr)
   puts("------------------------------");
 }
 
-void ChangeStudentName(char newname[], unsigned int sid, FILE* fptr) {}
+void ChangeStudentName(char newname[], unsigned int sid, FILE* fptr)
+{
+  info changeN;
+
+  fseek(fptr, sizeof(info) * (sid - 1), SEEK_SET);
+  fread(&changeN, sizeof(info), 1, fptr);
+  strcpy(changeN.name, newname);
+  fseek(fptr, sizeof(info) * (sid - 1), SEEK_SET);
+  fwrite(&changeN, sizeof(info), 1, fptr);
+}
