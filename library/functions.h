@@ -240,3 +240,5 @@ void RemoveStudent(unsigned int sid, FILE* fptr, FILE* gfptr)
   printf("\n");
   puts("------------------------------");
 }
+
+void ChangeStudentName(char newname[], unsigned int sid, FILE* fptr) {}
