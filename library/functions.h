@@ -262,3 +262,14 @@ void ChangeStudentLastName(char newlastname[], unsigned int sid, FILE* fptr)
   fseek(fptr, sizeof(info) * (sid - 1), SEEK_SET);
   fwrite(&changeL, sizeof(info), 1, fptr);
 }
+
+void ChangeStudentAge(unsigned int newage, unsigned int sid, FILE* fptr)
+{
+  info changeA;
+
+  fseek(fptr, sizeof(info) * (sid - 1), SEEK_SET);
+  fread(&changeA, sizeof(info), 1, fptr);
+  changeA.student_age = newage;
+  fseek(fptr, sizeof(info) * (sid - 1), SEEK_SET);
+  fwrite(&changeA, sizeof(info), 1, fptr);
+}
