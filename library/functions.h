@@ -273,3 +273,11 @@ void ChangeStudentAge(unsigned int newage, unsigned int sid, FILE* fptr)
   fseek(fptr, sizeof(info) * (sid - 1), SEEK_SET);
   fwrite(&changeA, sizeof(info), 1, fptr);
 }
+
+void ChangeStudentGrade(unsigned int sid, FILE* gfptr)
+{
+  grades changeG;
+  temp neW;
+  int choice;
+  // to be continued...
+}
