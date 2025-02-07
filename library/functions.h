@@ -279,5 +279,51 @@ void ChangeStudentGrade(unsigned int sid, FILE* gfptr)
   grades changeG;
   temp neW;
   int choice;
-  // to be continued...
+
+  do
+  {
+    choice = getcommand3(); 
+    switch (choice)
+    {
+      case 1:
+          printf("\n");
+
+          fseek(gfptr, sizeof(grades) * (sid - 1), SEEK_SET);
+          fread(&changeG, sizeof(grades), 1, gfptr);
+          printf("Enter new math1 grade : ");
+          scanf("%f", &neW.new_math1);
+          changeG.math1 = neW.new_math1;
+          fseek(gfptr, sizeof(grades) * (sid - 1), SEEK_SET);
+          fwrite(&changeG, sizeof(grades), 1, gfptr);
+
+          printf("\n");
+      break;
+
+      case 2:
+      break;
+
+      case 3:
+      break;
+
+      case 4:
+      break;
+
+      case 5:
+      break;
+
+      case 6:
+      break;
+
+      case 7:
+      break;
+
+      case 8:
+      break;
+ 
+      default:
+          puts("This is wrong number !!!");
+          puts("Try again...");
+      break;
+    }
+  }while (choice != 8);
 }
