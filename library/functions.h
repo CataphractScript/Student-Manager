@@ -300,6 +300,17 @@ void ChangeStudentGrade(unsigned int sid, FILE* gfptr)
       break;
 
       case 2:
+        printf("\n");
+
+        fseek(gfptr, sizeof(grades) * (sid - 1), SEEK_SET);
+        fread(&changeG, sizeof(grades), 1, gfptr);
+        printf("Enter new physic1 grade : ");
+        scanf("%f", &neW.new_physic1);
+        changeG.physic1 = neW.new_physic1;
+        fseek(gfptr, sizeof(grades) * (sid - 1), SEEK_SET);
+        fwrite(&changeG, sizeof(grades), 1, gfptr);
+
+        printf("\n");
       break;
 
       case 3:
