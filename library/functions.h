@@ -314,9 +314,31 @@ void ChangeStudentGrade(unsigned int sid, FILE* gfptr)
       break;
 
       case 3:
+        printf("\n");
+
+        fseek(gfptr, sizeof(grades) * (sid - 1), SEEK_SET);
+        fread(&changeG, sizeof(grades), 1, gfptr);
+        printf("Enter new computer workshop grade : ");
+        scanf("%f", &neW.new_computer_workshop);
+        changeG.computer_workshop = neW.new_computer_workshop;
+        fseek(gfptr, sizeof(grades) * (sid - 1), SEEK_SET);
+        fwrite(&changeG, sizeof(grades), 1, gfptr);
+
+        printf("\n");
       break;
 
       case 4:
+        printf("\n");
+
+        fseek(gfptr, sizeof(grades) * (sid - 1), SEEK_SET);
+        fread(&changeG, sizeof(grades), 1, gfptr);
+        printf("Enter new basic programming grade : ");
+        scanf("%f", &neW.new_basic_programming);
+        changeG.basic_programming = neW.new_basic_programming;
+        fseek(gfptr, sizeof(grades) * (sid - 1), SEEK_SET);
+        fwrite(&changeG, sizeof(grades), 1, gfptr);
+
+        printf("\n");
       break;
 
       case 5:
