@@ -128,13 +128,13 @@ int getcommand3()
   int choice;
 
   printf("\n");
-  puts("1. Change math1 grade");
-  puts("2. Change physic1 grade");
-  puts("3. Change computer workshop grade");
-  puts("4. Change basic programming grade");
-  puts("5. Change persian language grade");
-  puts("6. Change engilish language grade");
-  puts("7. Change rules grade");
+  puts("1. Change Math1 grade");
+  puts("2. Change Physic1 grade");
+  puts("3. Change Computer workshop grade");
+  puts("4. Change Basic programming grade");
+  puts("5. Change Persian language grade");
+  puts("6. Change Engilish language grade");
+  puts("7. Change Rules grade");
   puts("8. Back to main menu");
 
   scanf("%d", &choice);
@@ -146,13 +146,13 @@ int getcommand4()
   int choice;
 
   printf("\n");
-  puts("1. math1");
-  puts("2. physic1");
-  puts("3. computer workshop");
-  puts("4. basic programming");
-  puts("5. persian language");
-  puts("6. engilish language");
-  puts("7. rules");
+  puts("1. Math1");
+  puts("2. Physic1");
+  puts("3. Computer workshop");
+  puts("4. Basic programming");
+  puts("5. Persian language");
+  puts("6. Engilish language");
+  puts("7. Rules");
   puts("8. Back to main menu");
 
   scanf("%d", &choice);
@@ -178,19 +178,19 @@ void GetStudentInfo(info* stu, grades* gstu)
  
   puts("Enter student grades :");
 
-  printf("Enter math1 grade -----> ");
+  printf("Enter Math1 grade -----> ");
   scanf("%f", &(gstu->math1));
-  printf("Enter physic1 grade -----> ");
+  printf("Enter Physic1 grade -----> ");
   scanf("%f", &(gstu->physic1));
-  printf("Enter computer workshop grade -----> ");
+  printf("Enter Computer workshop grade -----> ");
   scanf("%f", &(gstu->computer_workshop));
-  printf("Enter basic programming grade -----> ");
+  printf("Enter Basic programming grade -----> ");
   scanf("%f", &(gstu->basic_programming));
-  printf("Enter persian language grade -----> ");
+  printf("Enter Persian language grade -----> ");
   scanf("%f", &(gstu->persian_lan));
-  printf("Enter english language grade -----> ");
+  printf("Enter English language grade -----> ");
   scanf("%f", &(gstu->english_lan));
-  printf("Enter rules grade -----> ");
+  printf("Enter Rules grade -----> ");
   scanf("%f", &(gstu->rules));
 }
 
@@ -200,19 +200,19 @@ void AddStudentGrades(grades* addG)
 
   puts("Enter student grades :");
 
-  printf("Enter math1 grade -----> ");
+  printf("Enter Math1 grade -----> ");
   scanf("%f", &(addG->math1));
-  printf("Enter physic1 grade -----> ");
+  printf("Enter Physic1 grade -----> ");
   scanf("%f", &(addG->physic1));
-  printf("Enter computer workshop grade -----> ");
+  printf("Enter Computer workshop grade -----> ");
   scanf("%f", &(addG->computer_workshop));
-  printf("Enter basic programming grade -----> ");
+  printf("Enter Basic programming grade -----> ");
   scanf("%f", &(addG->basic_programming));
-  printf("Enter persian language grade -----> ");
+  printf("Enter Persian language grade -----> ");
   scanf("%f", &(addG->persian_lan));
-  printf("Enter english language grade -----> ");
+  printf("Enter English language grade -----> ");
   scanf("%f", &(addG->english_lan));
-  printf("Enter rules grade -----> ");
+  printf("Enter Rules grade -----> ");
   scanf("%f", &(addG->rules));
 }
 
@@ -290,7 +290,7 @@ void ChangeStudentGrade(unsigned int sid, FILE* gfptr)
 
           fseek(gfptr, sizeof(grades) * (sid - 1), SEEK_SET);
           fread(&changeG, sizeof(grades), 1, gfptr);
-          printf("Enter new math1 grade : ");
+          printf("Enter new Math1 grade : ");
           scanf("%f", &neW.new_math1);
           changeG.math1 = neW.new_math1;
           fseek(gfptr, sizeof(grades) * (sid - 1), SEEK_SET);
@@ -304,7 +304,7 @@ void ChangeStudentGrade(unsigned int sid, FILE* gfptr)
 
         fseek(gfptr, sizeof(grades) * (sid - 1), SEEK_SET);
         fread(&changeG, sizeof(grades), 1, gfptr);
-        printf("Enter new physic1 grade : ");
+        printf("Enter new Physic1 grade : ");
         scanf("%f", &neW.new_physic1);
         changeG.physic1 = neW.new_physic1;
         fseek(gfptr, sizeof(grades) * (sid - 1), SEEK_SET);
@@ -318,7 +318,7 @@ void ChangeStudentGrade(unsigned int sid, FILE* gfptr)
 
         fseek(gfptr, sizeof(grades) * (sid - 1), SEEK_SET);
         fread(&changeG, sizeof(grades), 1, gfptr);
-        printf("Enter new computer workshop grade : ");
+        printf("Enter new Computer workshop grade : ");
         scanf("%f", &neW.new_computer_workshop);
         changeG.computer_workshop = neW.new_computer_workshop;
         fseek(gfptr, sizeof(grades) * (sid - 1), SEEK_SET);
@@ -332,7 +332,7 @@ void ChangeStudentGrade(unsigned int sid, FILE* gfptr)
 
         fseek(gfptr, sizeof(grades) * (sid - 1), SEEK_SET);
         fread(&changeG, sizeof(grades), 1, gfptr);
-        printf("Enter new basic programming grade : ");
+        printf("Enter new Basic programming grade : ");
         scanf("%f", &neW.new_basic_programming);
         changeG.basic_programming = neW.new_basic_programming;
         fseek(gfptr, sizeof(grades) * (sid - 1), SEEK_SET);
@@ -342,17 +342,47 @@ void ChangeStudentGrade(unsigned int sid, FILE* gfptr)
       break;
 
       case 5:
+          printf("\n");
+
+          fseek(gfptr, sizeof(grades) * (sid - 1), SEEK_SET);
+          fread(&changeG, sizeof(grades), 1, gfptr);
+          printf("Enter new Persian language grade : ");
+          scanf("%f", &neW.new_persian_lan);
+          changeG.persian_lan = neW.new_persian_lan;
+          fseek(gfptr, sizeof(grades) * (sid - 1), SEEK_SET);
+          fwrite(&changeG, sizeof(grades), 1, gfptr);
+
+          printf("\n");
       break;
 
       case 6:
+          printf("\n");
+
+          fseek(gfptr, sizeof(grades) * (sid - 1), SEEK_SET);
+          fread(&changeG, sizeof(grades), 1, gfptr);
+          printf("Enter new English language grade : ");
+          scanf("%f", &neW.new_english_lan);
+          changeG.english_lan = neW.new_english_lan;
+          fseek(gfptr, sizeof(grades) * (sid - 1), SEEK_SET);
+          fwrite(&changeG, sizeof(grades), 1, gfptr);
+
+          printf("\n");
       break;
 
       case 7:
+          printf("\n");
+
+          fseek(gfptr, sizeof(grades) * (sid - 1), SEEK_SET);
+          fread(&changeG, sizeof(grades), 1, gfptr);
+          printf("Enter new Rules grade : ");
+          scanf("%f", &neW.new_rules);
+          changeG.rules = neW.new_rules;
+          fseek(gfptr, sizeof(grades) * (sid - 1), SEEK_SET);
+          fwrite(&changeG, sizeof(grades), 1, gfptr);
+
+          printf("\n");
       break;
 
-      case 8:
-      break;
- 
       default:
           puts("This is wrong number !!!");
           puts("Try again...");
