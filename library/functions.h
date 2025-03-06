@@ -390,3 +390,21 @@ void ChangeStudentGrade(unsigned int sid, FILE* gfptr)
     }
   }while (choice != 8);
 }
+
+void RemoveStudentGrades(unsigned int sid, FILE* gfptr)
+{
+  grades Rgrades;
+
+  fseek(gfptr, sizeof(grades) * (sid - 1), SEEK_SET);
+  fread(&Rgrades, sizeof(grades), 1, gfptr);
+  Rgrades.check_grade = false;
+  fseek(gfptr, sizeof(grades) * (sid - 1), SEEK_SET);
+  fwrite(&Rgrades, sizeof(grades), 1, gfptr);
+
+  printf("\n");
+  puts("------------------------------");
+  printf("\n");
+  puts("Student's grades were successfully removed !!!");
+  printf("\n");
+  puts("------------------------------");
+}
