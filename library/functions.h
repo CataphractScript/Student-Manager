@@ -457,3 +457,69 @@ void ShowGrades(grades* chapG)
     printf("\n");
   }
 }
+
+void ShowMissedCourses(unsigned int sid, FILE* gfptr)
+{
+  grades Missed;
+  int counter = 0;
+
+  fseek(gfptr, sizeof(grades) * (sid - 1), SEEK_SET);
+  fread(&Missed, sizeof(grades), 1, gfptr);
+
+  puts("------------------------------");
+  printf("\n");
+
+  printf("Student ID : %u\n", sid);
+  printf("\n");
+
+  if (Missed.math1 < 10)
+  {
+    printf("* math1 : failed \t grade : %.2f\n", Missed.math1);
+    counter++;
+  }
+
+  if (Missed.physic1 < 10)
+  {
+    printf("* physic1 : failed \t grade : %.2f\n", Missed.physic1);
+    counter++;
+  }
+
+  if (Missed.computer_workshop < 10)
+  {
+    printf("* computer workshop : failed \t grade : %.2f\n", Missed.computer_workshop);
+    counter++;
+  }
+
+  if (Missed.basic_programming < 10)
+  {
+    printf("* basic programming : failed \t grade : %.2f\n", Missed.basic_programming);
+    counter++;
+  }
+
+  if (Missed.persian_lan < 10)
+  {
+    printf("* persian language : failed \t grade : %.2f\n", Missed.persian_lan);
+    counter++;
+  }
+
+  if (Missed.english_lan < 10)
+  {
+    printf("* english language : failed \t grade : %.2f\n", Missed.english_lan);
+    counter++;
+  }
+
+  if (Missed.rules < 10)
+  {
+    printf("* rules : failed \t grade : %.2f\n", Missed.rules);
+    counter++;
+  }
+
+  if (counter == 0)
+  {
+    puts("This student has succeeded in all subjects !!!");
+  }
+
+  printf("\n");
+  puts("------------------------------");
+}
+
