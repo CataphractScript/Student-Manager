@@ -408,3 +408,52 @@ void RemoveStudentGrades(unsigned int sid, FILE* gfptr)
   printf("\n");
   puts("------------------------------");
 }
+
+void ShowStudentInfo(info* chapI) // all students information
+{
+  printf("* name : %s\n", chapI->name);
+  printf("* Last name : %s\n", chapI->last_name);
+  printf("* Student id : %u\n", chapI->student_id);
+  printf("* Student age : %u\n", chapI->student_age);
+
+  printf("\n");
+  puts("------------------------------");
+  printf("\n");
+}
+
+
+void SearchStudentInfo(info* search)
+{
+  printf("\n");
+  puts("------------------------------");
+  printf("\n");
+
+  printf("* name : %s\n", search->name);
+  printf("* Last name : %s\n", search->last_name);
+  printf("* Student id : %u\n", search->student_id);
+  printf("* Student age : %u\n", search->student_age);
+
+  printf("\n");
+  puts("------------------------------");
+  printf("\n");
+}
+
+
+void ShowGrades(grades* chapG)
+{
+  if (chapG->check_grade == true)
+  {
+    printf("Student ID : %u\n", chapG->student_id);
+    printf("* lesson : math1 \t course : 3 \t grade : %.2f\n", chapG->math1);
+    printf("* lesson : physic1 \t course : 3 \t grade : %.2f\n", chapG->physic1);
+    printf("* lesson : computer workshop \t course : 1 \t grade : %.2f\n", chapG->computer_workshop);
+    printf("* lesson : basic programming \t course : 3 \t grade : %.2f\n", chapG->basic_programming);
+    printf("* lesson : persian language \t course : 3 \t grade : %.2f\n", chapG->persian_lan);
+    printf("* lesson : english language \t course : 3 \t grade : %.2f\n", chapG->english_lan);
+    printf("* lesson : rules \t course : 2 \t grade : %.2f\n", chapG->rules);
+
+    printf("\n");
+    puts("------------------------------");
+    printf("\n");
+  }
+}
