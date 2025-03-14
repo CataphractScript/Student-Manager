@@ -523,3 +523,264 @@ void ShowMissedCourses(unsigned int sid, FILE* gfptr)
   puts("------------------------------");
 }
 
+void ShowStudentFailedCounter(FILE* gfptr)
+{
+  int choice;
+  unsigned int counter = 0;
+  grades temp;
+
+  do
+  {
+    choice = getcommand4();
+
+    switch (choice)
+    {
+      case 1:
+          printf("\n");
+          puts("------------------------------");
+          printf("\n");
+
+          fseek(gfptr, 0, SEEK_SET);
+
+          while (!feof(gfptr))
+          {
+            fread(&temp, sizeof(grades), 1, gfptr);
+
+            if (!feof(gfptr) && temp.math1 < 10 && temp.check_grade == true && temp.student_id != 0)
+            {
+              counter++;
+            }
+          }
+
+          if (counter != 0)
+          {
+            printf("* lesson : math1 \t failed counter : %u\n", counter);
+          }
+          
+          else
+          {
+            puts("No one failed in math1 !!!");
+          }
+
+          printf("\n");
+          puts("------------------------------");
+          printf("\n");
+
+          counter = 0;
+      break;
+
+      case 2:
+          printf("\n");
+          puts("------------------------------");
+          printf("\n");
+
+          fseek(gfptr, 0, SEEK_SET);
+
+          while (!feof(gfptr))
+          {
+            fread(&temp, sizeof(grades), 1, gfptr);
+
+            if (!feof(gfptr) && temp.physic1 < 10 && temp.check_grade == true && temp.student_id != 0)
+            {
+              counter++;
+            }
+          }
+
+          if (counter != 0)
+          {
+            printf("* lesson : physic1 \t failed counter : %u\n", counter);
+          }
+          
+          else
+          {
+            puts("No one failed in physic1 !!!");
+          }
+
+          printf("\n");
+          puts("------------------------------");
+          printf("\n");
+
+          counter = 0;
+      break;
+
+      case 3:
+          printf("\n");
+          puts("------------------------------");
+          printf("\n");
+
+          fseek(gfptr, 0, SEEK_SET);
+
+          while (!feof(gfptr))
+          {
+            fread(&temp, sizeof(grades), 1, gfptr);
+
+            if (!feof(gfptr) && temp.computer_workshop < 10 && temp.check_grade == true && temp.student_id != 0)
+            {
+              counter++;
+            }
+          }
+
+          if (counter != 0)
+          {
+            printf("* lesson : computer_workshop \t failed counter : %u\n", counter);
+          }
+          
+          else
+          {
+            puts("No one failed in computer_workshop !!!");
+          }
+
+          printf("\n");
+          puts("------------------------------");
+          printf("\n");
+
+          counter = 0;
+      break;
+
+      case 4:
+          printf("\n");
+          puts("------------------------------");
+          printf("\n");
+
+          fseek(gfptr, 0, SEEK_SET);
+
+          while (!feof(gfptr))
+          {
+            fread(&temp, sizeof(grades), 1, gfptr);
+
+            if (!feof(gfptr) && temp.basic_programming < 10 && temp.check_grade == true && temp.student_id != 0)
+            {
+              counter++;
+            }
+          }
+
+          if (counter != 0)
+          {
+            printf("* lesson : basic_programming \t failed counter : %u\n", counter);
+          }
+          
+          else
+          {
+            puts("No one failed in basic_programming !!!");
+          }
+
+          printf("\n");
+          puts("------------------------------");
+          printf("\n");
+
+          counter = 0;
+      break;
+
+      case 5:
+          printf("\n");
+          puts("------------------------------");
+          printf("\n");
+
+          fseek(gfptr, 0, SEEK_SET);
+
+          while (!feof(gfptr))
+          {
+            fread(&temp, sizeof(grades), 1, gfptr);
+
+            if (!feof(gfptr) && temp.persian_lan < 10 && temp.check_grade == true && temp.student_id != 0)
+            {
+              counter++;
+            }
+          }
+
+          if (counter != 0)
+          {
+            printf("* lesson : persian_lan \t failed counter : %u\n", counter);
+          }
+          
+          else
+          {
+            puts("No one failed in persian_lan !!!");
+          }
+
+          printf("\n");
+          puts("------------------------------");
+          printf("\n");
+
+          counter = 0;
+      break;
+
+      case 6:
+          printf("\n");
+          puts("------------------------------");
+          printf("\n");
+
+          fseek(gfptr, 0, SEEK_SET);
+
+          while (!feof(gfptr))
+          {
+            fread(&temp, sizeof(grades), 1, gfptr);
+
+            if (!feof(gfptr) && temp.english_lan < 10 && temp.check_grade == true && temp.student_id != 0)
+            {
+              counter++;
+            }
+          }
+
+          if (counter != 0)
+          {
+            printf("* lesson : english_lan \t failed counter : %u\n", counter);
+          }
+          
+          else
+          {
+            puts("No one failed in english_lan !!!");
+          }
+
+          printf("\n");
+          puts("------------------------------");
+          printf("\n");
+
+          counter = 0;
+      break;
+
+      case 7:
+          printf("\n");
+          puts("------------------------------");
+          printf("\n");
+
+          fseek(gfptr, 0, SEEK_SET);
+
+          while (!feof(gfptr))
+          {
+            fread(&temp, sizeof(grades), 1, gfptr);
+
+            if (!feof(gfptr) && temp.rules < 10 && temp.check_grade == true && temp.student_id != 0)
+            {
+              counter++;
+            }
+          }
+
+          if (counter != 0)
+          {
+            printf("* lesson : rules \t failed counter : %u\n", counter);
+          }
+          
+          else
+          {
+            puts("No one failed in rules !!!");
+          }
+
+          printf("\n");
+          puts("------------------------------");
+          printf("\n");
+
+          counter = 0;
+      break;
+
+      case 8:
+      break;
+ 
+      default:
+          puts("This is wrong number !!!");
+          puts("Try again...");
+      break;
+    }
+  }while (choice != 8);
+}
+
