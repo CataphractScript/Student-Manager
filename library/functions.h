@@ -784,3 +784,277 @@ void ShowStudentFailedCounter(FILE* gfptr)
   }while (choice != 8);
 }
 
+void ShowListOfStudentWithXgrade(FILE* gfptr)
+{
+  int choice;
+  grades temp;
+  float user_grade;
+  int counter = 0;
+
+  do
+  {
+    choice = getcommand4();
+
+    switch (choice)
+    {
+      case 1:
+          printf("Enter the grade you want to find :");
+          scanf("%f", &user_grade);
+
+          printf("\n");
+          puts("------------------------------");
+          printf("\n");
+
+          fseek(gfptr, 0, SEEK_SET);
+
+          while (!feof(gfptr))
+          {
+            fread(&temp, sizeof(grades), 1, gfptr);
+            if (!feof(gfptr) && temp.math1 == user_grade && temp.check_grade == true && temp.student_id != 0) // !feof(gfptr) : شرط روبرو باعث می شود که از تکرار ریکورد آخر جلوگیری شود
+            {
+              printf("* student ID : %u \t lesson : math1 \t grade : %.2f\n", temp.student_id, temp.math1);
+              printf("\n");
+              puts("------------------------------");
+              printf("\n");
+
+              counter++;
+            }
+          }  
+
+          if (counter == 0)
+          {
+            puts("I can't find this grade from the list !!!");
+            printf("\n");
+            puts("------------------------------");
+            printf("\n");
+          }
+
+          counter = 0;
+      break;
+
+      case 2:
+          printf("Enter the grade you want to find :");
+          scanf("%f", &user_grade);
+
+          printf("\n");
+          puts("------------------------------");
+          printf("\n");
+
+          fseek(gfptr, 0, SEEK_SET);
+
+          while (!feof(gfptr))
+          {
+            fread(&temp, sizeof(grades), 1, gfptr);
+
+            if (!feof(gfptr) && temp.physic1 == user_grade && temp.check_grade == true && temp.student_id != 0)
+            {
+              printf("* student ID : %u \t lesson : physic1 \t grade : %.2f\n", temp.student_id, temp.physic1);
+              printf("\n");
+              puts("------------------------------");
+              printf("\n");
+
+              counter++;
+            }
+          }
+
+          if (counter == 0)
+          {
+            puts("I can't find this grade from the list !!!");
+            printf("\n");
+            puts("------------------------------");
+            printf("\n");
+          }
+
+          counter = 0;
+      break;
+
+      case 3:
+          printf("Enter the grade you want to find :");
+          scanf("%f", &user_grade);
+
+          printf("\n");
+          puts("------------------------------");
+          printf("\n");
+
+          fseek(gfptr, 0, SEEK_SET);
+
+          while (!feof(gfptr))
+          {
+            fread(&temp, sizeof(grades), 1, gfptr);
+
+            if (!feof(gfptr) && temp.computer_workshop == user_grade && temp.check_grade == true && temp.student_id != 0)
+            {
+              printf("* student ID : %u \t lesson : computer_workshop \t grade : %.2f\n", temp.student_id, temp.computer_workshop);
+              printf("\n");
+              puts("------------------------------");
+              printf("\n");
+
+              counter++;
+            }
+          }
+
+          if (counter == 0)
+          {
+            puts("I can't find this grade from the list !!!");
+            printf("\n");
+            puts("------------------------------");
+            printf("\n");
+          }
+
+          counter = 0;
+      break;
+
+      case 4:
+          printf("Enter the grade you want to find :");
+          scanf("%f", &user_grade);
+
+          printf("\n");
+          puts("------------------------------");
+          printf("\n");
+
+          fseek(gfptr, 0, SEEK_SET);
+
+          while (!feof(gfptr))
+          {
+            fread(&temp, sizeof(grades), 1, gfptr);
+
+            if (!feof(gfptr) && temp.basic_programming == user_grade && temp.check_grade == true && temp.student_id != 0)
+            {
+              printf("* student ID : %u \t lesson : basic_programming \t grade : %.2f\n", temp.student_id, temp.basic_programming);
+              printf("\n");
+              puts("------------------------------");
+              printf("\n");
+
+              counter++;
+            }
+          }
+
+          if (counter == 0)
+          {
+            puts("I can't find this grade from the list !!!");
+            printf("\n");
+            puts("------------------------------");
+            printf("\n");
+          }
+
+          counter = 0;
+      break;
+
+      case 5:
+          printf("Enter the grade you want to find :");
+          scanf("%f", &user_grade);
+
+          printf("\n");
+          puts("------------------------------");
+          printf("\n");
+
+          fseek(gfptr, 0, SEEK_SET);
+
+          while (!feof(gfptr))
+          {
+            fread(&temp, sizeof(grades), 1, gfptr);
+
+            if (!feof(gfptr) && temp.persian_lan == user_grade && temp.check_grade == true && temp.student_id != 0)
+            {
+              printf("* student ID : %u \t lesson : persian_lan \t grade : %.2f\n", temp.student_id, temp.persian_lan);
+              printf("\n");
+              puts("------------------------------");
+              printf("\n");
+
+              counter++;
+            }
+          }
+
+          if (counter == 0)
+          {
+            puts("I can't find this grade from the list !!!");
+            printf("\n");
+            puts("------------------------------");
+            printf("\n");
+          }
+
+          counter = 0;
+      break;
+
+      case 6:
+          printf("Enter the grade you want to find :");
+          scanf("%f", &user_grade);
+
+          printf("\n");
+          puts("------------------------------");
+          printf("\n");
+
+          fseek(gfptr, 0, SEEK_SET);
+
+          while (!feof(gfptr))
+          {
+            fread(&temp, sizeof(grades), 1, gfptr);
+
+            if (!feof(gfptr) && temp.english_lan == user_grade && temp.check_grade == true && temp.student_id != 0)
+            {
+              printf("* student ID : %u \t lesson : english_lan \t grade : %.2f\n", temp.student_id, temp.english_lan);
+              printf("\n");
+              puts("------------------------------");
+              printf("\n");
+
+              counter++;
+            }
+          }
+
+          if (counter == 0)
+          {
+            puts("I can't find this grade from the list !!!");
+            printf("\n");
+            puts("------------------------------");
+            printf("\n");
+          }
+
+          counter = 0;
+      break;
+
+      case 7:
+          printf("Enter the grade you want to find :");
+          scanf("%f", &user_grade);
+
+          printf("\n");
+          puts("------------------------------");
+          printf("\n");
+
+          fseek(gfptr, 0, SEEK_SET);
+
+          while (!feof(gfptr))
+          {
+            fread(&temp, sizeof(grades), 1, gfptr);
+
+            if (!feof(gfptr) && temp.rules == user_grade && temp.check_grade == true && temp.student_id != 0)
+            {
+              printf("* student ID : %u \t lesson : rules \t grade : %.2f\n", temp.student_id, temp.rules);
+              printf("\n");
+              puts("------------------------------");
+              printf("\n");
+
+              counter++;
+            }
+          }
+
+          if (counter == 0)
+          {
+            puts("I can't find this grade from the list !!!");
+            printf("\n");
+            puts("------------------------------");
+            printf("\n");
+          }
+
+          counter = 0;
+      break;
+
+      case 8:
+      break;
+ 
+      default:
+          puts("This is wrong number !!!");
+          puts("Try again...");
+      break;
+    }
+  }while (choice != 8);
+}
