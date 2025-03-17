@@ -1086,3 +1086,274 @@ void StudentGpa(unsigned int sid, FILE* gfptr)
     puts("------------------------------");
   }
 }
+
+void CoursesGpa(FILE* gfptr)
+{
+  int choice;
+  grades temp;
+  float sum = 0;
+  float GPA;
+  int counter = 0;
+
+  do
+  {
+    choice = getcommand4();
+
+    switch (choice)
+    {
+      case 1:
+          printf("\n");
+          puts("------------------------------");
+          printf("\n");
+
+          fseek(gfptr, 0, SEEK_SET);
+
+          while (!feof(gfptr))
+          {
+            fread(&temp, sizeof(grades), 1, gfptr);
+            if (!feof(gfptr) && temp.check_grade == true && temp.student_id != 0) // !feof(gfptr) : شرط روبرو باعث می شود که از تکرار ریکورد آخر جلوگیری شود
+            {
+              sum = sum + temp.math1;
+              counter++;
+            }
+          }
+
+          GPA = sum / counter;
+
+          printf("* math1 GPA : %.2f\n", GPA);
+          printf("\n");
+          puts("------------------------------");
+          printf("\n");
+
+          if (counter == 0)
+          {
+            puts("I can't find this grade from the list !!!");
+            puts("------------------------------");
+            printf("\n");
+          }
+
+          sum = 0;
+          counter = 0;
+      break;
+
+      case 2:
+          printf("\n");
+          puts("------------------------------");
+          printf("\n");
+
+          fseek(gfptr, 0, SEEK_SET);
+
+          while (!feof(gfptr))
+          {
+            fread(&temp, sizeof(grades), 1, gfptr);
+            if (!feof(gfptr) && temp.check_grade == true && temp.student_id != 0) // !feof(gfptr) : شرط روبرو باعث می شود که از تکرار ریکورد آخر جلوگیری شود
+            {
+              sum = sum + temp.physic1;
+              counter++;
+            }
+          }
+
+          GPA = sum / counter;
+
+          printf("* physic1 GPA : %.2f\n", GPA);
+          printf("\n");
+          puts("------------------------------");
+          printf("\n");
+
+          if (counter == 0)
+          {
+            puts("I can't find this grade from the list !!!");
+            puts("------------------------------");
+            printf("\n");
+          }
+
+          sum = 0;
+          counter = 0;
+      break;
+
+      case 3:
+          printf("\n");
+          puts("------------------------------");
+          printf("\n");
+
+          fseek(gfptr, 0, SEEK_SET);
+
+          while (!feof(gfptr))
+          {
+            fread(&temp, sizeof(grades), 1, gfptr);
+            if (!feof(gfptr) && temp.check_grade == true && temp.student_id != 0) // !feof(gfptr) : شرط روبرو باعث می شود که از تکرار ریکورد آخر جلوگیری شود
+            {
+              sum = sum + temp.computer_workshop;
+              counter++;
+            }
+          }
+
+          GPA = sum / counter;
+
+          printf("* computer_workshop GPA : %.2f\n", GPA);
+          printf("\n");
+          puts("------------------------------");
+          printf("\n");
+
+          if (counter == 0)
+          {
+            puts("I can't find this grade from the list !!!");
+            puts("------------------------------");
+            printf("\n");
+          }
+
+          sum = 0;
+          counter = 0;
+      break;
+
+      case 4:
+          printf("\n");
+          puts("------------------------------");
+          printf("\n");
+
+          fseek(gfptr, 0, SEEK_SET);
+
+          while (!feof(gfptr))
+          {
+            fread(&temp, sizeof(grades), 1, gfptr);
+            if (!feof(gfptr) && temp.check_grade == true && temp.student_id != 0) // !feof(gfptr) : شرط روبرو باعث می شود که از تکرار ریکورد آخر جلوگیری شود
+            {
+              sum = sum + temp.basic_programming;
+              counter++;
+            }
+          }
+
+          GPA = sum / counter;
+
+          printf("* basic_programming GPA : %.2f\n", GPA);
+          printf("\n");
+          puts("------------------------------");
+          printf("\n");
+
+          if (counter == 0)
+          {
+            puts("I can't find this grade from the list !!!");
+            puts("------------------------------");
+            printf("\n");
+          }
+
+          sum = 0;
+          counter = 0;
+      break;
+
+      case 5:
+          printf("\n");
+          puts("------------------------------");
+          printf("\n");
+
+          fseek(gfptr, 0, SEEK_SET);
+
+          while (!feof(gfptr))
+          {
+            fread(&temp, sizeof(grades), 1, gfptr);
+            if (!feof(gfptr) && temp.check_grade == true && temp.student_id != 0) // !feof(gfptr) : شرط روبرو باعث می شود که از تکرار ریکورد آخر جلوگیری شود
+            {
+              sum = sum + temp.persian_lan;
+              counter++;
+            }
+          }
+
+          GPA = sum / counter;
+
+          printf("* persian language GPA : %.2f\n", GPA);
+          printf("\n");
+          puts("------------------------------");
+          printf("\n");
+
+          if (counter == 0)
+          {
+            puts("I can't find this grade from the list !!!");
+            puts("------------------------------");
+            printf("\n");
+          }
+
+          sum = 0;
+          counter = 0;
+      break;
+
+      case 6:
+          printf("\n");
+          puts("------------------------------");
+          printf("\n");
+
+          fseek(gfptr, 0, SEEK_SET);
+
+          while (!feof(gfptr))
+          {
+            fread(&temp, sizeof(grades), 1, gfptr);
+            if (!feof(gfptr) && temp.check_grade == true && temp.student_id != 0) // !feof(gfptr) : شرط روبرو باعث می شود که از تکرار ریکورد آخر جلوگیری شود
+            {
+              sum = sum + temp.english_lan;
+              counter++;
+            }
+          }
+
+          GPA = sum / counter;
+
+          printf("* english language GPA : %.2f\n", GPA);
+
+          printf("\n");
+          puts("------------------------------");
+          printf("\n");
+
+          if (counter == 0)
+          {
+            puts("I can't find this grade from the list !!!");
+            puts("------------------------------");
+            printf("\n");
+          }
+
+          sum = 0;
+          counter = 0;
+      break;
+
+      case 7:
+          printf("\n");
+          puts("------------------------------");
+          printf("\n");
+
+          fseek(gfptr, 0, SEEK_SET);
+
+          while (!feof(gfptr))
+          {
+            fread(&temp, sizeof(grades), 1, gfptr);
+            if (!feof(gfptr) && temp.check_grade == true && temp.student_id != 0) // !feof(gfptr) : شرط روبرو باعث می شود که از تکرار ریکورد آخر جلوگیری شود
+            {
+              sum = sum + temp.rules;
+              counter++;
+            }
+          }
+
+          GPA = sum / counter;
+
+          printf("* rules GPA : %.2f\n", GPA);
+          printf("\n");
+          puts("------------------------------");
+          printf("\n");
+
+          if (counter == 0)
+          {
+            puts("I can't find this grade from the list !!!");
+            puts("------------------------------");
+            printf("\n");
+          }
+
+          sum = 0;
+          counter = 0;
+      break;
+
+      case 8:
+      break;
+ 
+      default:
+          puts("This is wrong number !!!");
+          puts("Try again...");
+      break;
+    }
+  }while (choice != 8);
+}
