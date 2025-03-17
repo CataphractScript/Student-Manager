@@ -1058,3 +1058,31 @@ void ShowListOfStudentWithXgrade(FILE* gfptr)
     }
   }while (choice != 8);
 }
+
+void StudentGpa(unsigned int sid, FILE* gfptr)
+{
+  grades GPAS;
+  float Average;
+
+  fseek(gfptr, sizeof(grades) * (sid - 1), SEEK_SET);
+  fread(&GPAS, sizeof(grades), 1, gfptr);
+
+  if (GPAS.check_grade == true)
+  { 
+    Average = (GPAS.math1 + GPAS.physic1 + GPAS.computer_workshop + GPAS.basic_programming + GPAS.persian_lan + GPAS.english_lan + GPAS.rules) / 7;
+    
+    puts("------------------------------");
+    printf("\n");
+    printf("Student ID : %u \t Student GPA: %.2f\n", GPAS.student_id, Average);
+    printf("\n");
+    puts("------------------------------");          
+  }
+  else
+  {
+    puts("------------------------------");
+    printf("\n");
+    puts("student grades has been removed !!!");
+    printf("\n");
+    puts("------------------------------");
+  }
+}
