@@ -1357,3 +1357,49 @@ void CoursesGpa(FILE* gfptr)
     }
   }while (choice != 8);
 }
+
+void Conditionalstudents(FILE* fptr, FILE* gfptr)
+{
+  info chap;
+  grades GPA_check;
+  float Average;
+  int counter = 0;
+
+  fseek(fptr, 0, SEEK_SET);
+  fseek(gfptr, 0, SEEK_SET);
+
+  printf("\n");
+  puts("------------------------------");
+  printf("\n");
+
+  while (!feof(fptr) && !feof(gfptr))
+  {
+    fread(&chap, sizeof(info), 1, fptr);
+    fread(&GPA_check, sizeof(grades), 1, gfptr);
+
+    if (!feof(gfptr) && GPA_check.check_grade == true && GPA_check.student_id != 0)
+    {
+      Average = (GPA_check.math1 + GPA_check.physic1 + GPA_check.computer_workshop + GPA_check.basic_programming + GPA_check.persian_lan + GPA_check.english_lan + GPA_check.rules) / 7;
+    }
+
+    if (Average < 12 && !feof(fptr) && chap.student_id != 0 && GPA_check.check_grade == true)
+    {
+      printf("* name : %s\n", chap.name);
+      printf("* Last name : %s\n", chap.last_name);
+      printf("* Student id : %u\n", chap.student_id);
+      printf("* Student age : %u\n", chap.student_age);
+
+      printf("\n");
+      puts("------------------------------");
+
+      counter++;
+    }
+  }
+
+  if (counter == 0)
+  {
+    puts("In this semester, no student has been put on probation.");
+    printf("\n");
+    puts("------------------------------");
+  }
+}
