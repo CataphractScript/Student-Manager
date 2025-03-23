@@ -1403,3 +1403,137 @@ void Conditionalstudents(FILE* fptr, FILE* gfptr)
     puts("------------------------------");
   }
 }
+
+void NoFailedLesson(FILE* gfptr)
+{
+  grades no_failed;
+  check check_fail;
+
+  check_fail.m1 = true;
+  check_fail.ph1 = true;
+  check_fail.cw = true;
+  check_fail.bp = true;
+  check_fail.pl = true;
+  check_fail.el = true;
+  check_fail.r = true;
+
+  fseek(gfptr, 0, SEEK_SET);
+
+  printf("\n");
+  puts("------------------------------");
+  printf("\n");
+
+  while (!feof(gfptr))
+  {
+    fread(&no_failed, sizeof(grades), 1, gfptr);
+
+    if (no_failed.math1 < 10 && !feof(gfptr) && no_failed.check_grade == true)
+    {
+      check_fail.m1 = false;
+    }
+
+    if (no_failed.physic1 < 10 && !feof(gfptr) && no_failed.check_grade == true)
+    {
+      check_fail.ph1 = false;
+    }
+
+    if (no_failed.computer_workshop < 10 && !feof(gfptr) && no_failed.check_grade == true)
+    {
+      check_fail.cw = false;
+    }
+
+    if (no_failed.basic_programming < 10 && !feof(gfptr) && no_failed.check_grade == true)
+    {
+      check_fail.bp = false;
+    }
+
+    if (no_failed.persian_lan < 10 && !feof(gfptr) && no_failed.check_grade == true)
+    {
+      check_fail.pl = false;
+    }
+
+    if (no_failed.english_lan < 10 && !feof(gfptr) && no_failed.check_grade == true)
+    {
+      check_fail.el = false;
+    }
+    
+    if (no_failed.rules < 10 && !feof(gfptr) && no_failed.check_grade == true)
+    {
+      check_fail.r = false;
+    }
+  }
+
+  if (check_fail.m1 == true)
+  {
+    puts("* No one failed in math1.");
+  }
+
+  else
+  {
+    puts("* A student or students have failed in math1.");
+  }
+
+  if (check_fail.ph1 == true)
+  {
+    puts("* No one failed in physic1.");
+  }
+
+  else
+  {
+    puts("* A student or students have failed in physic1.");
+  }
+
+  if (check_fail.cw == true)
+  {
+    puts("* No one failed in computer workshop.");
+  }
+
+  else
+  {
+    puts("* A student or students have failed in computer workshop.");
+  }
+
+  if (check_fail.bp == true)
+  {
+    puts("* No one failed in basic programming.");
+  }
+
+  else
+  {
+    puts("* A student or students have failed in basic programming.");
+  }
+
+  if (check_fail.pl == true)
+  {
+    puts("* No one failed in persian language.");
+  }
+
+  else
+  {
+    puts("* A student or students have failed in persian language.");
+  }
+
+  if (check_fail.el == true)
+  {
+    puts("* No one failed in english language.");
+  }
+
+  else
+  {
+    puts("* A student or students have failed in english language.");
+  }
+
+  if (check_fail.r == true)
+  {
+    puts("* No one failed in rules");
+  }
+
+  else
+  {
+    puts("* A student or students have failed in rules.");
+  }
+
+  printf("\n");
+  puts("------------------------------");
+  printf("\n");
+}
