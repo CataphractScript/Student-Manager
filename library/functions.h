@@ -1467,7 +1467,6 @@ void NoFailedLesson(FILE* gfptr)
   {
     puts("* No one failed in math1.");
   }
-
   else
   {
     puts("* A student or students have failed in math1.");
@@ -1477,7 +1476,6 @@ void NoFailedLesson(FILE* gfptr)
   {
     puts("* No one failed in physic1.");
   }
-
   else
   {
     puts("* A student or students have failed in physic1.");
@@ -1487,7 +1485,6 @@ void NoFailedLesson(FILE* gfptr)
   {
     puts("* No one failed in computer workshop.");
   }
-
   else
   {
     puts("* A student or students have failed in computer workshop.");
@@ -1497,7 +1494,6 @@ void NoFailedLesson(FILE* gfptr)
   {
     puts("* No one failed in basic programming.");
   }
-
   else
   {
     puts("* A student or students have failed in basic programming.");
@@ -1507,7 +1503,6 @@ void NoFailedLesson(FILE* gfptr)
   {
     puts("* No one failed in persian language.");
   }
-
   else
   {
     puts("* A student or students have failed in persian language.");
@@ -1517,7 +1512,6 @@ void NoFailedLesson(FILE* gfptr)
   {
     puts("* No one failed in english language.");
   }
-
   else
   {
     puts("* A student or students have failed in english language.");
@@ -1527,7 +1521,6 @@ void NoFailedLesson(FILE* gfptr)
   {
     puts("* No one failed in rules");
   }
-
   else
   {
     puts("* A student or students have failed in rules.");
