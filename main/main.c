@@ -175,6 +175,50 @@ int main()
         break;
       }
 
+      switch (command.c1) // convert num to enum value
+      {
+      case 0:
+        break;
+
+      case 1:
+        chosen_option_CSI = CSN;
+        command.c1 = 0;
+        break;
+
+      case 2:
+        chosen_option_CSI = CSL;
+        command.c1 = 0;
+        break;
+
+      case 3:
+        chosen_option_CSI = CSA;
+        command.c1 = 0;
+        break;
+
+      case 4:
+        chosen_option_CSI = CSG;
+        command.c1 = 0;
+        break;
+
+      case 5:
+        chosen_option_CSI = RSG;
+        command.c1 = 0;
+        break;
+
+      case 6: // Back to main menu option.
+        chosen_option_CSI = ZERO1;
+        command.c1 = 0;
+        break;
+    
+      default:
+        chosen_option_menu = ZERO1;
+        printf("\n");
+        puts("Wrong Number");
+        puts("Try again...");
+        command.c1 = 0;
+        break;
+      }
+
       //To be continued...
     }while (command.cM != 6);
     
