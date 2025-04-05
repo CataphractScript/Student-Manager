@@ -219,6 +219,144 @@ int main()
         break;
       }
 
+      switch (chosen_option_CSI)
+      {
+      case CSN:
+        temp CN_ID;
+
+        sfptr = fopen("../files/student.dat", "rb+"); // rb+ : read & write
+
+        if (sfptr == NULL)
+        {
+          fputs("Can not open the student file !!!", stderr);
+          return 0;
+        }
+
+        printf("\n");
+        printf("Enter student id : ");
+        scanf("%u", &CN_ID.enter_id);
+
+        printf("Enter new name : ");
+        scanf("%20s", &CN_ID.new_name);
+
+        ChangeStudentName(CN_ID.new_name, CN_ID.enter_id, sfptr);
+
+        fclose(sfptr);
+          
+        printf("\n");
+          
+        chosen_option_CSI = ZERO1;
+      
+        break; 
+
+      case CSL:
+        temp CL_ID; // متغییر موقت که از کاربر می گیرد
+
+        sfptr = fopen("../files/student.dat", "rb+");
+
+        if (sfptr == NULL)
+        {
+          fputs("Can not open the file !!!", stderr);
+          return 0;
+        }
+
+        printf("\n");
+        printf("Enter student id : ");
+        scanf("%u", &CL_ID.enter_id);
+
+        printf("Enter new last name : ");
+        scanf("%30s", &CL_ID.new_last_name);
+
+        ChangeStudentLastName(CL_ID.new_last_name, CL_ID.enter_id, sfptr);
+
+        fclose(sfptr);
+          
+        printf("\n");
+          
+        chosen_option_CSI = ZERO1;
+
+        break;
+
+      case CSA: 
+        temp CA_ID; // متغییر موقت که از کاربر می گیرد
+
+        sfptr = fopen("../files/student.dat", "rb+");
+
+        if (sfptr == NULL)
+        {
+          fputs("Can not open the file !!!", stderr);
+          return 0;
+        }
+
+        printf("\n");
+        printf("Enter student id : ");
+        scanf("%u", &CA_ID.enter_id);
+
+        printf("Enter new age : ");
+        scanf("%u", &CA_ID.new_age);
+
+        ChangeStudentAge(CA_ID.new_age, CA_ID.enter_id, sfptr);
+
+        fclose(sfptr);
+               
+        printf("\n");
+          
+        chosen_option_CSI = ZERO1;
+
+        break;
+      
+      case CSG: // تغییر نمره دانشجو
+      
+        temp CG_ID; // متغییر موقت که از کاربر می گیرد
+
+        gsfptr = fopen("../files/grades.dat", "rb+");
+          
+        if (gsfptr == NULL)
+        {
+          fputs("Can not open the grades file !!!", stderr);
+          return 0;
+        }
+
+        printf("\n");
+        printf("Enter student id : ");
+        scanf("%u", &CG_ID.enter_id);
+
+        ChangeStudentGrade(CG_ID.enter_id, gsfptr);
+
+        fclose(gsfptr);
+               
+        printf("\n");
+          
+        chosen_option_CSI = ZERO1;
+      
+        break;
+          
+      case RSG: // حذف نمرات دانشجو
+        temp RG_ID; // متغییر موقت که از کاربر می گیرد
+
+        gsfptr = fopen("../files/grades.dat", "rb+");
+
+        if (gsfptr == NULL)
+        {
+          fputs("Can not open the grades file !!!", stderr);
+          return 0;
+        }
+
+        printf("\n");
+        printf("Enter student id : ");
+        scanf("%u", &RG_ID.enter_id);
+
+        RemoveStudentGrades(RG_ID.enter_id, gsfptr);
+
+        fclose(gsfptr);
+               
+        printf("\n");
+          
+        chosen_option_CSI = ZERO1;
+
+        break;
+      }
+
       //To be continued...
     }while (command.cM != 6);
     
