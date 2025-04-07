@@ -250,7 +250,7 @@ int main()
         break; 
 
       case CSL:
-        temp CL_ID; // متغییر موقت که از کاربر می گیرد
+        temp CL_ID;
 
         sfptr = fopen("../files/student.dat", "rb+");
 
@@ -278,7 +278,7 @@ int main()
         break;
 
       case CSA: 
-        temp CA_ID; // متغییر موقت که از کاربر می گیرد
+        temp CA_ID;
 
         sfptr = fopen("../files/student.dat", "rb+");
 
@@ -305,9 +305,9 @@ int main()
 
         break;
       
-      case CSG: // تغییر نمره دانشجو
+      case CSG:
       
-        temp CG_ID; // متغییر موقت که از کاربر می گیرد
+        temp CG_ID;
 
         gsfptr = fopen("../files/grades.dat", "rb+");
           
@@ -357,7 +357,312 @@ int main()
         break;
       }
 
-      //To be continued...
+      switch (command.c2)
+      {
+        case 0:
+          break;
+
+        case 1:
+          chosen_option_PL = PLOS;
+          command.c2 = 0;
+          break;
+
+        case 2:
+          chosen_option_PL = SSI;
+          command.c2 = 0;
+          break;
+
+        case 3:
+          chosen_option_PL = PLOG;
+          command.c2 = 0;
+          break;
+
+        case 4:
+          chosen_option_PL = SSMC;
+          command.c2 = 0;
+          break;
+
+        case 5:
+          chosen_option_PL = SNFSC;
+          command.c2 = 0;
+          break;
+
+        case 6:
+          chosen_option_PL = SISGEU;
+          command.c2 = 0;
+          break;
+
+        case 7:
+          chosen_option_PL = GPA;
+          command.c2 = 0;
+          break;
+
+        case 8:
+          chosen_option_PL = GPACF;
+          command.c2 = 0;
+          break;
+
+        case 9:
+          chosen_option_PL = CS;
+          command.c2 = 0;
+          break;
+
+        case 10:
+          chosen_option_PL = LCYF;
+          command.c2 = 0;
+          break;
+
+        case 11: // Back to main menu option.
+          chosen_option_PL = ZERO2;
+          command.c2 = 0;
+          break;
+
+        default:
+          chosen_option_menu = ZERO2;
+          printf("\n");
+          puts("Wrong Number");
+          puts("Try again...");
+          command.c2 = 0;
+          break;
+      }
+
+
+      switch (chosen_option_PL)
+      {
+      case PLOS:
+        info PIL; // PIL : print student list
+
+        sfptr = fopen("../files/student.dat", "rb");
+
+        if (sfptr == NULL)
+        {
+          fputs("Can not open the student file !!!", stderr);
+        }
+
+        printf("\n");
+        puts("------------------------------");
+        printf("\n");
+
+        fseek(sfptr, 0, SEEK_SET);
+
+        while (!feof(sfptr))
+        {
+          fread(&PIL, sizeof(info), 1, sfptr);
+
+          if (!feof(sfptr) && PIL.student_id != 0)
+          {
+            ShowStudentInfo(&PIL);         
+          }
+        }       
+       
+        fclose(sfptr);
+
+        chosen_option_PL = ZERO2;
+
+        break;
+
+      case SSI:
+        temp search_ID;
+        info SEARCH;
+
+        sfptr = fopen("../files/student.dat", "rb");
+
+        if (sfptr == NULL)
+        {
+          fputs("Can not open the student file !!!", stderr);
+          return 0;
+        }
+
+        printf("\n");
+        printf("Enter student id : ");
+        scanf("%u", &search_ID.enter_id);
+
+        fseek(sfptr, sizeof(info) * (search_ID.enter_id- 1), SEEK_SET);
+        fread(&SEARCH, sizeof(info), 1, sfptr);
+
+        SearchStudentInfo(&SEARCH);
+
+        fclose(sfptr);
+          
+        chosen_option_PL = ZERO2;
+        break;
+
+      case PLOG:
+        grades PGL; // PGL : print grades list
+
+        gsfptr = fopen("../files/grades.dat", "rb");
+
+        if (gsfptr == NULL)
+        {
+          fputs("Can not open the grades file !!!", stderr);
+        }
+
+        printf("\n");
+        puts("------------------------------");
+        printf("\n");
+
+        fseek(gsfptr, 0, SEEK_SET);
+
+        while (!feof(gsfptr))
+        { 
+          fread(&PGL, sizeof(grades), 1, gsfptr);
+
+          if (!feof(gsfptr) && PGL.check_grade == true)
+          {
+            ShowGrades(&PGL);         
+          }
+        }       
+       
+        fclose(gsfptr);     
+
+        chosen_option_PL = ZERO2;
+        break;
+
+      case SSMC:
+        temp missed_ID;
+
+        gsfptr = fopen("../files/grades.dat", "rb");
+
+        if (sfptr == NULL)
+        {
+          fputs("Can not open the student file !!!", stderr);
+          return 0;
+        }
+
+        printf("\n");
+        printf("Enter student id : ");
+        scanf("%u", &missed_ID.enter_id);
+        printf("\n");
+
+        ShowMissedCourses(missed_ID.enter_id, gsfptr);
+
+        fclose(gsfptr);
+               
+        printf("\n");
+          
+        chosen_option_PL = ZERO2;
+        break;
+
+      case SNFSC:
+        gsfptr = fopen("../files/grades.dat", "rb");
+
+        if (gsfptr == NULL)
+        {
+          fputs("Can not open the grades file !!!", stderr);
+        }
+
+        ShowStudentFailedCounter(gsfptr);
+
+        fclose(gsfptr);
+
+        printf("\n");
+
+        chosen_option_PL = ZERO2;
+        break;
+
+      case SISGEU:
+        gsfptr = fopen("../files/grades.dat", "rb");
+
+        if (gsfptr == NULL)
+        {
+          fputs("Can not open the grades file !!!", stderr);
+        }
+
+        ShowListOfStudentWithXgrade(gsfptr);
+
+        fclose(gsfptr);
+
+        printf("\n");
+
+        chosen_option_PL = ZERO2;
+        break;
+      
+      case GPA:
+        temp student_ID;
+
+        gsfptr = fopen("../files/grades.dat", "rb");
+
+        if (gsfptr == NULL)
+        {
+          fputs("Can not open the grades file !!!", stderr);
+          return 0;
+        }
+
+        printf("\n");
+        printf("Enter student id : ");
+        scanf("%u", &student_ID.enter_id);
+        printf("\n");
+
+        StudentGpa(student_ID.enter_id, gsfptr);
+
+        fclose(gsfptr);
+               
+        printf("\n");
+          
+        chosen_option_PL = ZERO2;
+        break;
+
+      case GPACF:
+        gsfptr = fopen("../files/grades.dat", "rb");
+
+        if (gsfptr == NULL)
+        {
+          fputs("Can not open the grades file !!!", stderr);
+        }
+
+        CoursesGpa(gsfptr);
+
+        fclose(gsfptr);
+
+        printf("\n");
+
+        chosen_option_PL = ZERO2;
+        break;
+
+      case CS:
+        sfptr = fopen("../files/student.dat", "rb");
+        gsfptr = fopen("../files/grades.dat", "rb");
+
+        if (sfptr == NULL)
+        {
+          fputs("Can not open the student file !!!", stderr);
+        }
+
+        if (gsfptr == NULL)
+        {
+          fputs("Can not open the grades file !!!", stderr);
+        }
+
+        Conditionalstudents(sfptr, gsfptr);
+
+        fclose(sfptr);
+        fclose(gsfptr);
+
+        printf("\n");
+
+        chosen_option_PL = ZERO2;
+        break;
+
+      case LCYF:
+        gsfptr = fopen("../files/grades.dat", "rb");
+
+        if (gsfptr == NULL)
+        {
+          fputs("Can not open the grades file !!!", stderr);
+        }
+
+        NoFailedLesson(gsfptr);
+
+        fclose(gsfptr);
+
+        printf("\n");
+
+        chosen_option_PL = ZERO2;
+        break;
+      
+      case ZERO2:
+        break;
+      }
     }while (command.cM != 6);
     
     return 0;
